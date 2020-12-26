@@ -1,1 +1,5 @@
+# PHPunit
+.phpunit.result*
+
+# Vendor packages.
 vendor/
