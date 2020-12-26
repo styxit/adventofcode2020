@@ -23,3 +23,11 @@ Solve the puzzle with
 ```
  ./aoc solve 28
 ```
+
+## 🐞 Testing
+For each solution a test can be written to make sure the output is correct. by extending the `AbstractDayTest` only the Class to be tested + the solutions need to be defined. To test the solution for a new day, add a test in the `tests/Days` dir.
+
+Run all tests: 
+```
+./vendor/bin/phpunit --testdox tests
+```

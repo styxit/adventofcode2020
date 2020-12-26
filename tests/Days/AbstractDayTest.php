@@ -5,17 +5,46 @@ namespace Tests\Days;
 use PHPUnit\Framework\TestCase;
 
 abstract class AbstractDayTest extends TestCase
-{
-    public function testOutcome()
+{   
+    /**
+     * Classname of the solution to test.
+     * Should be overwritten by the test class.
+     */
+    protected static $class;
+
+    /**
+     * Instance of the day solution.
+     */
+    private static $solution;
+
+    /**
+     * Load the test class and exectute it to get solution for day 1 and 2.
+     */
+    public static function setUpBeforeClass(): void
     {
-        // Load solution for a day.
-        $day = new $this->class();
+        /**
+         * create an instance of the solution.
+         * Use late satic binding to load the string as defined in the test: https://www.php.net/lsb
+         */
+        self::$solution = new static::$class();
 
-        // Execute day solution.
-        $day->execute();
+         // Execute day solution.
+         self::$solution->execute();
+    }
 
-        // Assert outcome.
-        $this->assertSame($this->solutionPart1, $day->part1);
-        $this->assertSame($this->solutionPart2, $day->part2);
+    /**
+     * Assert solution for day 1.
+     */
+    public function testPart1()
+    {
+        $this->assertSame($this->solutionPart1, self::$solution->part1);
+    }
+
+    /**
+     * Assert solution for day 2.
+     */
+    public function testPart2()
+    {
+        $this->assertSame($this->solutionPart2, self::$solution->part2);
     }
 }
