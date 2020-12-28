@@ -9,7 +9,7 @@ class Solution extends AbstractSolution
     const GOLD = 'shiny gold';
 
     /**
-     * Array of bags with their required contet.
+     * Array of bags with their required content.
      * Keyed by color, values is the required bags + quantity.
      * 
      * [
